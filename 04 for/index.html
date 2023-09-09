@@ -3,30 +3,61 @@
 <head>
     <script>
         //el for tiene 3 parametros
-        for (let i = 1; i <= 10; i = i + 2) {
-            //console.log(i)
+        /*
+        for (let i = 0; i <= 10; i++) {
+            console.log(`Posicion iterada: ${i}`)
+        }*/
+
+        /*
+                //Iterar de 0 a 10 pero imprimir en consola solamente mayores a 5
+                for (let i = 5; i <= 10; i++) {
+                    console.log("picision interada", i)
+                }
+                */
+
+
+
+        //ejercicio hallar el numero mayor de 5 numeros introducidos
+
+
+        let mayor = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            let numero = prompt(`Digite el numero ${i}`)
+            let numeroIntroducidoEntero = parseInt(numero)
+
+            if (numeroIntroducidoEntero > mayor) {
+                mayor = numeroIntroducidoEntero
+            }
+
         }
 
-        //el while tiene una condicion para que itere, esta se evalua en cada iteracion
-        let x = 0;
-        while (x < 20) {
-            console.log(x);
-            x++;
-        }
 
-        //condicional if
-        let z = 15;
-        if (z > 20) {
-            //se ejecuta lo que este dentro de estas llaves si la condicion es true
-            console.log("Z es mayor a 20")
-        } else {
-            console.log("Z es menor a 20")
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //operadores logicos
 
         //&&
+        /*
         let y = 20;
         if (y < 50 && y > 5) {
             console.log("y es menor que 50 y mayor a 5");
@@ -37,7 +68,7 @@
         let otroNumero = 20
         if (otroNumero > 50 || otroNumero < 50) {
             console.log("se cumple una de las dos condiciones")
-        }
+        }*/
 
 
         //= asignacion
@@ -45,7 +76,7 @@
         //=== comparacion estricta
 
         let num = 6;
-        console.log("mi numero favorito es " + num); // concatenar
+        //console.log("mi numero favorito es " + num); // concatenar
 
     </script>
 </head>
