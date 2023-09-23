@@ -21,13 +21,24 @@
 
 
         let mayor = 0;
+        let menor;
 
+        //digite 5 numeros, halle el mayor y el menor
         for (let i = 1; i <= 5; i++) {
             let numero = prompt(`Digite el numero ${i}`)
             let numeroIntroducidoEntero = parseInt(numero)
 
             if (numeroIntroducidoEntero > mayor) {
                 mayor = numeroIntroducidoEntero
+            }
+
+            if(i == 1){
+                //aqui ocurre cuando el for arranca, es decir la primer iteracion
+                menor = numeroIntroducidoEntero
+            }
+
+            if(numeroIntroducidoEntero < menor){
+                menor = numeroIntroducidoEntero
             }
 
         }
