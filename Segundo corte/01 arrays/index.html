@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script>
+
+        let paises = ['Argeintina', 'Colombia', 'Perú']
+        let numerosPares = [2, 6, 10, 20, 30]
+
+        let diferentesCosas = [true, 40, 'Gato', undefined] // no se debe hacer
+        let otrasCosas = ['Argentina', 'Computador', 'Colegio'] //no tiene patron, salvo que necesitemos hacerlo
+
+        //metodos de los arrays
+        let animales = ['Elefante', 'Perro', 'Zorro', 'Gato']
+        //console.log('Animales', animales)
+
+        let cantidadAnimales = animales.length // cantidad de posiciones del array
+        //console.log(cantidadAnimales);
+
+        animales.push('Pato')
+        animales.push('Toro')
+        ///console.log('Animales despues de push', animales)
+        //console.log('Cant animales despues del push', animales.length)
+
+        //animales.pop();
+        //console.log('Animales despues del pop', animales);
+
+        //find busca el valor en el array y devuelve el valor
+        let encontrado = animales.find(el => el == 'Perro')
+        //console.log(encontrado)
+
+        //acceder al valor de una posicion especifica del array
+        let miAnimal = animales[4]
+        console.log(miAnimal)
+
+        //indexOf busca el valor y devuelve la posicion, si no encuentra nada devuelve -1
+        let posicionEncontrada = animales.indexOf('Jirafa')
+        //console.log(posicionEncontrada)
+
+        let numeros = [4, 6, 2, 3, 6, 1, 9];
+        //console.log(numeros);
+
+        //for each itera cada una de las posiciones del array
+        numeros.forEach((num, index) => {
+            console.log(`La posicion ${index} del array tiene el valor ${num}`)
+            //console.log(index)
+            //console.log(num)
+        })
+
+
+    </script>
+</head>
+
+</html>
