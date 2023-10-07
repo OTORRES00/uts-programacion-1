@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <script>
+        let estudiante1 = { nombre: 'Juan', nota: 3.5, edad: 21, matriculado: true }
+        let estudiante2 = { nombre: 'Oscar', nota: 4.2, edad: 24, matriculado: false }
+        let estudiante3 = { nombre: 'Maria', nota: 1.9, edad: 22, matriculado: true }
+        let estudiante4 = { nombre: 'Jose', nota: 3.4, edad: 19, matriculado: false }
+
+        let estudiantes = [estudiante1, estudiante2, estudiante3, estudiante4]
+
+        let mayorNota = 0;
+        let nombreMejorEstudiante = '';
+
+        estudiantes.forEach(est => {
+            let estudianteIterado = est
+            let notaIterada = estudianteIterado.nota
+            let nombreIterado = estudianteIterado.nombre
+
+            //console.log(`Estudiante iterado ${nombreIterado} tiene la nota ${notaIterada}`)
+            if (notaIterada > mayorNota) {
+                mayorNota = notaIterada
+                nombreMejorEstudiante = nombreIterado
+            }
+        })
+
+        console.log(`El mejor estudiante es ${nombreMejorEstudiante} su nota fue ${mayorNota}`)
+
+
+
+    </script>
+</head>
+
+</html>
