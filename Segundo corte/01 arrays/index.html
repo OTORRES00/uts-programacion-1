@@ -2,7 +2,6 @@
 
 <head>
     <script>
-
         let paises = ['Argeintina', 'Colombia', 'Perú']
         let numerosPares = [2, 6, 10, 20, 30]
 
@@ -18,6 +17,12 @@
 
         animales.push('Pato')
         animales.push('Toro')
+
+        //console.log(animales)
+
+        //borra elementos, (posicion, cuantos), si no se especifica cuantos eliminar, elimina todos desde la posicion en la que este
+        animales.splice(2, 3)
+        //console.log(animales)
         ///console.log('Animales despues de push', animales)
         //console.log('Cant animales despues del push', animales.length)
 
@@ -28,23 +33,42 @@
         let encontrado = animales.find(el => el == 'Perro')
         //console.log(encontrado)
 
-        //acceder al valor de una posicion especifica del array
+        //acceder al valor de una posicion Despecifica del array
         let miAnimal = animales[4]
-        console.log(miAnimal)
+        //console.log(miAnimal)
 
         //indexOf busca el valor y devuelve la posicion, si no encuentra nada devuelve -1
         let posicionEncontrada = animales.indexOf('Jirafa')
         //console.log(posicionEncontrada)
 
         let numeros = [4, 6, 2, 3, 6, 1, 9];
-        //console.log(numeros);
+        console.log(numeros);
+
+        let nuevoArray = []
+
+        numeros.forEach((num) => {
+            let doble = num * 2
+            nuevoArray.push(doble)
+        })
+        console.log(nuevoArray)
 
         //for each itera cada una de las posiciones del array
         numeros.forEach((num, index) => {
-            console.log(`La posicion ${index} del array tiene el valor ${num}`)
+            //console.log(`La posicion ${index} del array tiene el valor ${num}`)
             //console.log(index)
             //console.log(num)
         })
+
+        //map itera el array, pero a diferencia del forEach devuelve un valor
+
+        let nuevoArrayConMap = numeros.map((num) => {
+            //console.log(num)
+            return num * 2
+        })
+        console.log(nuevoArrayConMap)
+
+
+
 
 
     </script>
