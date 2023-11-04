@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <script>
+        //declaramos nombre para que la variable este disponible en el programa
+        let personas = []
+
+        const agregarPersona = () => {
+            let persona = {}
+
+            let nombreDigitado = prompt('Digite nombre de la persona');
+            persona.nombre = nombreDigitado;
+
+            let edadDigitada = parseInt(prompt('Digite edad de la persona'))
+            persona.edad = edadDigitada;
+
+            let estaturaDigitada = parseFloat(prompt('Digite estatura de la persona'))
+            persona.estatura = estaturaDigitada;
+            personas.push(persona);
+            persona = {};
+        }
+
+        function validarMayor() {
+
+            if (personas.length > 0) {
+                let edadMayor = 0;
+                let nombreMayor = '';
+                personas.forEach(el => {
+                    if (el.edad > edadMayor) {
+                        edadMayor = el.edad
+                        nombreMayor = el.nombre
+                    }
+
+                })
+                console.log(`el mayor es ${nombreMayor}, y tiene ${edadMayor} años`)
+            } else {
+                alert('No sea bruto, primero agregue personas ')
+            }
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="agregarPersona()">AGREGAR PERSONA</button>
+    <button onclick="validarMayor()">VALIDAR MAYOR</button>
+</body>
+
+</html>

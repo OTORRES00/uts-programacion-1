@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <script>
+        //declaramos nombre para que la variable este disponible en el programa
+        let nombre;
+
+        const armarEstudiante = () => {
+            nombre = prompt('Digite nombre del estudiante')
+            console.log(nombre);
+        }
+
+        function calcularNotaDefinitiva() {
+            console.log('Nombre a evaluar', nombre)
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="armarEstudiante()">PEDIR DATOS</button>
+    <button onclick="calcularNotaDefinitiva()">CALCULAR NOTA</button>
+</body>
+
+</html>
