@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script>
+        //declaramos nombre para que la variable este disponible en el programa
+        let productos = []
+
+        const agregarProducto = () => {
+            let producto = {}
+
+            let nombreProducto = prompt('Digite el nombre del producto');
+            producto.nombre = nombreProducto;
+
+            let cantidad = parseInt(prompt('Digite cantidad'))
+            producto.cantidad = cantidad;
+
+            let precio = parseFloat(prompt('Digite precio unitario'))
+            producto.precio = precio;
+
+
+            productos.push(producto);
+        }
+
+        function calcularTotalPagar() {
+
+            if (productos.length > 0) {
+                let totalPagar = 0;
+
+                productos.forEach(el => {
+                    totalPagar = totalPagar + (el.cantidad * el.precio)
+                })
+
+                document.getElementById('labelTotalPagar').innerHTML = `El total a pagar es ${totalPagar}`;
+            } else {
+                alert('Primero agregue productos')
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="agregarProducto()">AGREGAR PRODUCTO</button>
+    <button onclick="calcularTotalPagar()">CALCULAR TOTAL</button>
+    <br></br>
+    <label id="labelTotalPagar"></label>
+</body>
+
+</html>
