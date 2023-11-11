@@ -3,22 +3,56 @@
 <head>
     <script>
         //declaramos nombre para que la variable este disponible en el programa
+        let productosDisponibles = [
+            { nombre: 'PERA', existencias: 500 },
+            { nombre: 'MANZANA', existencias: 300 },
+            { nombre: 'AGUA BOTELLA', existencias: 176 },
+            { nombre: 'CHOCOLATE DULCESITO', existencias: 230 }
+        ]
         let productos = []
+        let filaAgregar = 1;
 
         const agregarProducto = () => {
             let producto = {}
-
             let nombreProducto = prompt('Digite el nombre del producto');
-            producto.nombre = nombreProducto;
 
-            let cantidad = parseInt(prompt('Digite cantidad'))
-            producto.cantidad = cantidad;
+            let productoEncontrado = productosDisponibles.find(el => el.nombre === nombreProducto.toUpperCase());
 
-            let precio = parseFloat(prompt('Digite precio unitario'))
-            producto.precio = precio;
+            if (productoEncontrado != undefined) {
+
+                //Aqui sabemos que SI vendemos el productos
+                let cantidad = parseInt(prompt('Digite cantidad'))
+                if (productoEncontrado.existencias >= cantidad) {
+                    producto.nombre = nombreProducto;
+                    producto.cantidad = cantidad;
+
+                    let precio = parseFloat(prompt('Digite precio unitario'))
+                    producto.precio = precio;
+
+                    //agregamos el producto al array
+                    productos.push(producto);
+
+                    //agregamos el producto a la tabla
+                    let tablaProd = document.getElementById("tablaProductos");
+                    let fila = tablaProd.insertRow(filaAgregar);
+                    //agregamos las celdas
+                    let celdaNombre = fila.insertCell(0);
+                    let celdaCant = fila.insertCell(1);
+                    let celdaPrecio = fila.insertCell(2);
+                    celdaNombre.innerHTML = producto.nombre.toUpperCase();
+                    celdaCant.innerHTML = producto.cantidad;
+                    celdaPrecio.innerHTML = `$${producto.precio}`;
+
+                    filaAgregar++;
+                } else {
+                    alert(`No hay cantidad para el producto ${productoEncontrado.nombre}, apenas tenemos ${productoEncontrado.existencias} y usted quiere que le vendamos ${cantidad}`)
+                }
+            } else {
+                alert(`No vendemos el producto ${nombreProducto}`)
+            }
 
 
-            productos.push(producto);
+
         }
 
         function calcularTotalPagar() {
@@ -43,7 +77,17 @@
     <button onclick="agregarProducto()">AGREGAR PRODUCTO</button>
     <button onclick="calcularTotalPagar()">CALCULAR TOTAL</button>
     <br></br>
+    <table id='tablaProductos' border="1px">
+        <tr>
+            <th>NOMBRE</th>
+            <th>CANT</th>
+            <th>PRECIO</th>
+        </tr>
+    </table>
+    <br>
     <label id="labelTotalPagar"></label>
+
+
 </body>
 
 </html>
