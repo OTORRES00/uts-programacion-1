@@ -2,17 +2,22 @@
 
 <head>
     <script>
+
         //declaramos nombre para que la variable este disponible en el programa
+
         let productosDisponibles = [
             { nombre: 'PERA', existencias: 500 },
             { nombre: 'MANZANA', existencias: 300 },
             { nombre: 'AGUA BOTELLA', existencias: 176 },
             { nombre: 'CHOCOLATE DULCESITO', existencias: 230 }
         ]
+
         let productos = []
         let filaAgregar = 1;
 
-        const agregarProducto = () => {
+        function agregarProducto() {
+            console.log('Se ejecuta agregarProducto')
+
             let producto = {}
             let nombreProducto = prompt('Digite el nombre del producto');
 
@@ -26,7 +31,7 @@
                     producto.nombre = nombreProducto;
                     producto.cantidad = cantidad;
 
-                    let precio = parseFloat(prompt('Digite precio unitario'))
+                    let precio = parseInt(prompt('Digite precio unitario'))
                     producto.precio = precio;
 
                     //agregamos el producto al array
@@ -39,9 +44,28 @@
                     let celdaNombre = fila.insertCell(0);
                     let celdaCant = fila.insertCell(1);
                     let celdaPrecio = fila.insertCell(2);
+                    let celdaEliminar = fila.insertCell(3);
                     celdaNombre.innerHTML = producto.nombre.toUpperCase();
                     celdaCant.innerHTML = producto.cantidad;
                     celdaPrecio.innerHTML = `$${producto.precio}`;
+
+
+                    // Agregamos el botón de eliminar en la fila
+                    let btnEliminar = document.createElement('button');
+                    btnEliminar.innerHTML = 'Eliminar';
+                    btnEliminar.onclick = function () {
+                        let productoEliminar = productos.find(el => el.nombre === producto.nombre)
+                        let posicionProdEliminar = productos.indexOf(productoEliminar)
+                        productos.splice(posicionProdEliminar, 1)
+                        console.log(productos)
+
+                        /*Aca se debe renderizar la tabla nuevamente*/
+
+
+
+                    };
+
+                    celdaEliminar.appendChild(btnEliminar);
 
                     filaAgregar++;
                 } else {
@@ -51,9 +75,9 @@
                 alert(`No vendemos el producto ${nombreProducto}`)
             }
 
-
-
         }
+
+
 
         function calcularTotalPagar() {
 
@@ -77,17 +101,42 @@
     <button onclick="agregarProducto()">AGREGAR PRODUCTO</button>
     <button onclick="calcularTotalPagar()">CALCULAR TOTAL</button>
     <br></br>
+    <label>Su factura</label>
+
     <table id='tablaProductos' border="1px">
         <tr>
             <th>NOMBRE</th>
             <th>CANT</th>
             <th>PRECIO</th>
+            <th>ELIMINAR</th>
         </tr>
     </table>
-    <br>
     <label id="labelTotalPagar"></label>
+    <br></br>
+    <label>Productos disponibles</label>
+    <table id='tablaInventario' border="1px">
+        <tr>
+            <th>NOMBRE</th>
+            <th>CANT</th>
+        </tr>
+    </table>
 
 
+
+
+
+    <script>
+        let tablaParaInventario = document.getElementById('tablaInventario')
+        productosDisponibles.forEach(el => {
+            let fila = tablaParaInventario.insertRow(1);
+
+            let celdaNombre = fila.insertCell(0);
+            let celdaExistencias = fila.insertCell(1);
+
+            celdaNombre.innerHTML = el.nombre;
+            celdaExistencias.innerHTML = el.existencias;
+        })
+    </script>
 </body>
 
 </html>
